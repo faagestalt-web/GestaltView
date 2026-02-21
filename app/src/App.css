@@ -1,0 +1,99 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: auto;
+}
+
+/* Section stacking */
+.section-1 { z-index: 10; }
+.section-2 { z-index: 20; }
+.section-3 { z-index: 30; }
+.section-4 { z-index: 40; }
+.section-5 { z-index: 50; }
+.section-6 { z-index: 60; }
+.section-7 { z-index: 70; }
+.section-8 { z-index: 80; }
+.section-9 { z-index: 90; }
+.section-10 { z-index: 100; }
+.section-11 { z-index: 110; }
+.section-contact { z-index: 120; }
+
+/* Ensure pinned sections stack correctly */
+.section-pinned {
+  will-change: transform;
+}
+
+/* Hero panel backdrop */
+.hero-panel {
+  background-color: rgba(7, 10, 18, 0.72);
+}
+
+/* Image cinematic treatment */
+.image-cinematic {
+  filter: saturate(0.35) contrast(1.15);
+}
+
+/* Line animation */
+.gestalt-line {
+  filter: drop-shadow(0 0 8px hsl(160 80% 55% / 0.5));
+}
+
+/* Button hover effects */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Form focus states */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 2px hsl(160 80% 55% / 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-pinned .absolute[class*="max-w-["] {
+    max-width: 80vw !important;
+  }
+  
+  .section-pinned .absolute[class*="left-[10vw]"],
+  .section-pinned .absolute[class*="left-[54vw]"] {
+    left: 8vw !important;
+  }
+  
+  .section-pinned h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+  }
+  
+  .hero-panel {
+    width: 100vw !important;
+    background: rgba(7, 10, 18, 0.75) !important;
+  }
+  
+  .section-1 .absolute[class*="max-w-[30vw]"] {
+    max-width: 80vw !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gestalt-line {
+    display: none;
+  }
+}
